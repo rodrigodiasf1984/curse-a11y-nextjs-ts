@@ -46,7 +46,7 @@ export default function Home() {
           <h3>O que é acessibilidade, afinal?</h3>
         </article>
       </main>
-      <footer className={styles.header}>
+      <footer className={styles.footer}>
         <Image src={LogoImg} width={143} height={39} alt='Blog da Rocketseat' />
 
         <nav className={styles.nav} aria-label='Rodapé'>
