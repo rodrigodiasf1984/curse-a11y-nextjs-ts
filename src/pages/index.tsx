@@ -7,11 +7,14 @@ export default function Home() {
   return (
     <>
       <header className={styles.header}>
-        <Image src={LogoImg} width={143} height={39} />
+        <Image src={LogoImg} width={143} height={39} alt='Blog da Rocketseat' />
 
         <nav className={styles.nav}>
-          <a href='https://github.com/rodrigodiasf1984'>
-            <Image src={GithubImg} width={24} height={24} />
+          <a
+            href='https://github.com/rodrigodiasf1984'
+            aria-label='Acessar o github'
+          >
+            <Image src={GithubImg} width={24} height={24} alt='Github' />
           </a>
         </nav>
       </header>
@@ -44,7 +47,7 @@ export default function Home() {
         </article>
       </main>
       <footer className={styles.header}>
-        <Image src={LogoImg} width={143} height={39} />
+        <Image src={LogoImg} width={143} height={39} alt='Blog da Rocketseat' />
 
         <nav className={styles.nav} aria-label='Rodapé'>
           <a href='https://github.com/rodrigodiasf1984'>Termos de uso</a>
