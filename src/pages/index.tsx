@@ -2,10 +2,21 @@ import Image from 'next/image'
 import LogoImg from '../assets/logo.svg'
 import GithubImg from '../assets/github.svg'
 import styles from '../styles/home.module.css'
+import Head from 'next/head'
+import { useState } from 'react'
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true)
+  }
+
   return (
     <>
+      <Head>
+        <title>Desenvolendo uma web accessivel | Blog da Rocketseat</title>
+      </Head>
       <header className={styles.header}>
         <Image src={LogoImg} width={143} height={39} alt='Blog da Rocketseat' />
 
@@ -21,11 +32,11 @@ export default function Home() {
       <main>
         <article className={styles.content}>
           <header>
-            <h2>Desenvolendo uma web accessivel</h2>
-            <h4>
+            <h1>Desenvolendo uma web accessivel</h1>
+            <h2>
               Protocolos e diretrizes orientam o desenvolvimento de tecnologias
               acessíveis, mas é preciso olhar para além de tudo isso
-            </h4>
+            </h2>
           </header>
           <p>
             Acessibilidade se tornou uma tendência no ecossistema tecnológico
@@ -50,9 +61,18 @@ export default function Home() {
         <Image src={LogoImg} width={143} height={39} alt='Blog da Rocketseat' />
 
         <nav className={styles.nav} aria-label='Rodapé'>
-          <a href='https://github.com/rodrigodiasf1984'>Termos de uso</a>
+          <button type='button' onClick={handleOpenModal}>
+            Termos de uso
+          </button>
         </nav>
       </footer>
+
+      {isModalOpen && (
+        <div className={styles.modal}>
+          <h2>Termos de uso</h2>
+          <p>Esses são os termos de uso</p>
+        </div>
+      )}
     </>
   )
 }
