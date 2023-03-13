@@ -3,7 +3,7 @@ import LogoImg from '../assets/logo.svg'
 import GithubImg from '../assets/github.svg'
 import styles from '../styles/home.module.css'
 import Head from 'next/head'
-import { useEffect, useRef, useState } from 'react'
+import * as Dialog from '@radix-ui/react-dialog'
 
 export default function Home() {
   return (
@@ -55,14 +55,25 @@ export default function Home() {
         <Image src={LogoImg} width={143} height={39} alt='Blog da Rocketseat' />
 
         <nav className={styles.nav} aria-label='Rodapé'>
-          <button type='button'>Termos de uso</button>
+          <Dialog.Root>
+            <Dialog.Trigger asChild>
+              <button type='button'>Termos de uso</button>
+            </Dialog.Trigger>
+            <Dialog.Portal>
+              <Dialog.Overlay className={styles.overlay} />
+              <Dialog.Content className={styles.modal}>
+                <Dialog.Title>Termos de uso</Dialog.Title>
+                <Dialog.Description>
+                  <p>Esses são os termos de uso</p>
+                </Dialog.Description>
+                <Dialog.Close asChild>
+                  <button className={styles.closeModalButton}>fechar</button>
+                </Dialog.Close>
+              </Dialog.Content>
+            </Dialog.Portal>
+          </Dialog.Root>
         </nav>
       </footer>
-
-      <div className={styles.modal}>
-        <h2>Termos de uso</h2>
-        <p>Esses são os termos de uso</p>
-      </div>
     </>
   )
 }
